@@ -9,7 +9,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <stdio.h>
 
 using namespace std;
 
@@ -44,11 +43,15 @@ vector<int> twoSum(vector<int>& nums, int target)
         if (copy[i] == a)
         {
             resultVec.push_back(i);
+            break;
         }
-
+    }
+    for (int i = (int)copy.size() - 1; i >= 0; i--)
+    {
         if (copy[i] == b)
         {
             resultVec.push_back(i);
+            break;
         }
     }
 
@@ -57,15 +60,13 @@ vector<int> twoSum(vector<int>& nums, int target)
 
 int main(int argc, const char * argv[])
 {
-    int arr[] = {2,7,11,15};
+    int arr[] = {2, 7, 11, 15};
     vector<int> vec(arr, arr + sizeof(arr)/sizeof(int));
     vector<int> vv = twoSum(vec, 9);
-    cout << vv[0] << " " << vv[1] ;
-
+    for (int i = 0; i < vv.size(); i++)
+    {
+        cout << vv[i] << " ";
+    }
 
     return 0;
 }
-
-
-
-
